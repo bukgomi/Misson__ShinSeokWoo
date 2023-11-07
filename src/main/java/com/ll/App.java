@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
     void run() {
-        System.out.println("== 명언 앱 ==");
+        System.out.println("=== 명언 앱 ===");
         while (true) {
             System.out.print("명령) ");
 
