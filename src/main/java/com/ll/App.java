@@ -20,9 +20,7 @@ public class App {
             if (cmd.equals("종료")) {
                 System.out.println("종료");
                 break;
-            }
-
-            else if (cmd.equals("등록")) {
+            } else if (cmd.equals("등록")) {
                 System.out.print("명언: ");
                 String content = scanner.nextLine();
 
@@ -37,15 +35,14 @@ public class App {
                 quotations.add(quotation);
 
                 System.out.println(cnt + "번 명언이 등록되었습니다.");
-            }
-            else if (cmd.equals("목록")) {
+            } else if (cmd.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("-------------------");
                 if (quotations.isEmpty())
                     System.out.println("등록된 명언이 없습니다.");
-                for (int i = quotations.size()-1; i>=0; i--){
+                for (int i = quotations.size() - 1; i >= 0; i--) {
                     Quotation quotation = quotations.get(i);
-                    System.out.printf("%d / %s / %s\n",quotation.id,quotation.authorName,quotation.content);
+                    System.out.printf("%d / %s / %s\n", quotation.id, quotation.authorName, quotation.content);
                 }
             } else if (cmd.startsWith("삭제")) {
                 int id = Integer.parseInt(cmd.split("=")[1]);
@@ -53,10 +50,13 @@ public class App {
                     if (quotations.get(i).getId() == id) {
                         quotations.remove(i);
                         System.out.println(id + "번 명언이 삭제되었습니다.");
-                        break;
+                    } else {
+                        System.out.println(id + "번 명언은 존재하지 않습니다.");
                     }
+                    break;
                 }
             }
+
         }
     }
 }
