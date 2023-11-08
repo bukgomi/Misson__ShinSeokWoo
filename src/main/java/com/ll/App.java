@@ -46,14 +46,42 @@ public class App {
                 }
             } else if (cmd.startsWith("삭제")) {
                 int id = Integer.parseInt(cmd.split("=")[1]);
+                boolean isExist = false;
                 for (int i = 0; i < quotations.size(); i++) {
                     if (quotations.get(i).getId() == id) {
                         quotations.remove(i);
                         System.out.println(id + "번 명언이 삭제되었습니다.");
-                    } else {
-                        System.out.println(id + "번 명언은 존재하지 않습니다.");
+                        isExist = true;
+                        break;
                     }
-                    break;
+                }
+                if (!isExist) {
+                    System.out.println(id + "번 명언은 존재하지 않습니다.");
+                }
+            } else if (cmd.startsWith("수정")) {
+                int id = Integer.parseInt(cmd.split("=")[1]);
+
+                boolean isExist = false;
+                for (int i = 0; i < quotations.size(); i++) {
+                    if (quotations.get(i).getId() == id) {
+                        System.out.println("명언(기존) : " + quotations.get(i).content);
+                        System.out.print("명언 : ");
+                        String content = scanner.nextLine();
+
+                        System.out.println("작가(기존) : " + quotations.get(i).authorName);
+                        System.out.print("작가 : ");
+                        String authorName = scanner.nextLine();
+
+                        quotations.get(i).content = content;
+                        quotations.get(i).authorName = authorName;
+
+                        System.out.println(id + "번 명언이 수정되었습니다.");
+                        isExist = true;
+                        break;
+                    }
+                }
+                if (!isExist) {
+                    System.out.println(id + "번 명언은 존재하지 않습니다.");
                 }
             }
 
