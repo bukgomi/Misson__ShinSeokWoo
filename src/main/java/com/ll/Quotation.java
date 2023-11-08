@@ -10,4 +10,8 @@ public class Quotation {
         this.content = content;
         this.authorName = authorName;
     }
+    public int getId() {
+        return id;
+    }
 }
+

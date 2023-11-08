@@ -47,8 +47,16 @@ public class App {
                     Quotation quotation = quotations.get(i);
                     System.out.printf("%d / %s / %s\n",quotation.id,quotation.authorName,quotation.content);
                 }
+            } else if (cmd.startsWith("삭제")) {
+                int id = Integer.parseInt(cmd.split("=")[1]);
+                for (int i = 0; i < quotations.size(); i++) {
+                    if (quotations.get(i).getId() == id) {
+                        quotations.remove(i);
+                        System.out.println(id + "번 명언이 삭제되었습니다.");
+                        break;
+                    }
+                }
             }
         }
-
     }
 }
